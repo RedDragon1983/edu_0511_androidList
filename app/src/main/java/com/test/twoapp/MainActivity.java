@@ -1,6 +1,7 @@
 package com.test.twoapp;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -49,17 +50,20 @@ public class MainActivity extends AppCompatActivity {
         public UserHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
             // inflater - наполнитель
             LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
+            Log.d("SYSTEM INFO: ", "Метод onCreateViewHolder запущен");
             return new UserHolder(inflater,viewGroup);
         }
 
         @Override
         public void onBindViewHolder(UserHolder userHolder, int position) {
             String userName = userList.get(position);
+            Log.d("SYSTEM INFO: ", "Метод onBindViewHolder запущен");
             userHolder.bind(userName);
         }
 
         @Override
         public int getItemCount() {
+            Log.d("SYSTEM INFO: ", "Метод getItemCount запущен");
             return userList.size();
         }
     }
